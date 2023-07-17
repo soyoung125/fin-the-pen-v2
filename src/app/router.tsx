@@ -4,6 +4,7 @@ import HOME_ROUTES from './routes/HOME_ROUTES';
 import MANAGEMENT_ROUTES from './routes/MANAGEMENT_ROUTES';
 import AnalysisLayout from '../component/layouts/containerLayout/AnalysisLayout';
 import HomeLayout from '../component/layouts/containerLayout/HomeLayout';
+import ManagementLayout from '../component/layouts/containerLayout/ManagementLayout';
 
 const router = createBrowserRouter(
     [
@@ -17,12 +18,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/management",
-                    element: <>
-                        ManagementLayout
-                        <div>
-                            <Outlet />
-                        </div>
-                    </>,
+                    element: <ManagementLayout />,
                     children: MANAGEMENT_ROUTES,
                 },
                 {
