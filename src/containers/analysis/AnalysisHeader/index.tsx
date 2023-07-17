@@ -3,7 +3,7 @@ import { LocalizationProvider, StaticDatePicker } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import moment from 'moment';
 import { useState } from 'react';
-import SwitchingHeader from '../../../component/common/SwitchingHeader';
+import SwitchingHeader from '../../../components/common/SwitchingHeader';
 
 function AnalysisHeader() {
     const [date, setDate] = useState(moment()); // 전역 상태로 변경 예정

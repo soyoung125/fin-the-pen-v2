@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import LogoButton from '../buttons/LogoButton';
 import PATH from '../../../../../domain/constants/path';
 import PersonalButton from '../buttons/PersonalButton';
-import RoundedButton from '../../../../../component/common/RoundedButton';
+import RoundedButton from '../../../../../components/common/RoundedButton';
 
 function HomeMode() {
   const navigate = useNavigate();

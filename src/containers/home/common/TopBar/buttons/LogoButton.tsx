@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import RoundedButton from "../../../../../component/common/RoundedButton";
+import RoundedButton from "../../../../../components/common/RoundedButton";
 import PATH from "../../../../../domain/constants/path";
 import { useNavigate } from "react-router-dom";
 import logo from '../../../../../assets/logos/logo_white.png';

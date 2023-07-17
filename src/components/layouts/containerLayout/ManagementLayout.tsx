@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import SwitchingHeader from '../../common/SwitchingHeader';
+import SwitchingHeader from '../../../components/common/SwitchingHeader';
 import assetManagements from '../../../domain/constants/managements';
 
 function ManagementLayout() {

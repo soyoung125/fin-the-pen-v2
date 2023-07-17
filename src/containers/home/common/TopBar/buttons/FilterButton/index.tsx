@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
-import RoundedButton from '../../../../../../component/common/RoundedButton';
+import RoundedButton from '../../../../../../components/common/RoundedButton';
 
 function FilterButton() {
     const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
