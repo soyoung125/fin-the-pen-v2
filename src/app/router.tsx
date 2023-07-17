@@ -2,6 +2,7 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 import ANALYSIS_ROUTES from './routes/ANALYSIS_ROUTES';
 import HOME_ROUTES from './routes/HOME_ROUTES';
 import MANAGEMENT_ROUTES from './routes/MANAGEMENT_ROUTES';
+import AnalysisLayout from '../component/layouts/containerLayout/AnalysisLayout';
 
 const router = createBrowserRouter(
     [
@@ -30,12 +31,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/analysis",
-                    element: <>
-                        AnalysisLayout
-                        <div>
-                            <Outlet />
-                        </div>
-                    </>,
+                    element: <AnalysisLayout />,
                     children: ANALYSIS_ROUTES,
                 },
             ],
