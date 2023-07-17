@@ -2,17 +2,15 @@ import { createBrowserRouter, Outlet } from 'react-router-dom';
 import ANALYSIS_ROUTES from './routes/ANALYSIS_ROUTES';
 import HOME_ROUTES from './routes/HOME_ROUTES';
 import MANAGEMENT_ROUTES from './routes/MANAGEMENT_ROUTES';
+import AnalysisLayout from '../components/layouts/containerLayout/AnalysisLayout';
+import HomeLayout from '../components/layouts/containerLayout/HomeLayout';
+import ManagementLayout from '../components/layouts/containerLayout/ManagementLayout';
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
-            element: <>
-                homeLayout
-                <div>
-                    <Outlet />
-                </div>
-            </>,
+            element: <HomeLayout />,
             children: [
                 {
                     path: "/",
@@ -20,22 +18,12 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "/management",
-                    element: <>
-                        ManagementLayout
-                        <div>
-                            <Outlet />
-                        </div>
-                    </>,
+                    element: <ManagementLayout />,
                     children: MANAGEMENT_ROUTES,
                 },
                 {
                     path: "/analysis",
-                    element: <>
-                        AnalysisLayout
-                        <div>
-                            <Outlet />
-                        </div>
-                    </>,
+                    element: <AnalysisLayout />,
                     children: ANALYSIS_ROUTES,
                 },
             ],
