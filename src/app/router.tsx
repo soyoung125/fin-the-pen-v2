@@ -3,17 +3,13 @@ import ANALYSIS_ROUTES from './routes/ANALYSIS_ROUTES';
 import HOME_ROUTES from './routes/HOME_ROUTES';
 import MANAGEMENT_ROUTES from './routes/MANAGEMENT_ROUTES';
 import AnalysisLayout from '../component/layouts/containerLayout/AnalysisLayout';
+import HomeLayout from '../component/layouts/containerLayout/HomeLayout';
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
-            element: <>
-                homeLayout
-                <div>
-                    <Outlet />
-                </div>
-            </>,
+            element: <HomeLayout />,
             children: [
                 {
                     path: "/",
