@@ -1,8 +1,2 @@
-function SignIn() {
-  return(
-    <>SignIn</>
-  )
-}
-  
-export default SignIn;
-  
+import SignIn from './SignIn.tsx'
+export default SignIn
