@@ -2,6 +2,7 @@ import Footer from "../../containers/sign/signInContainer/Footer.tsx";
 import {Stack} from "@mui/material";
 import CenterBox from "../../components/layouts/CenterBox.tsx";
 import Header from "../../containers/sign/signInContainer/Header.tsx";
+import SignInFields from "../../containers/sign/signInContainer/SignInFields.tsx";
 
 function SignIn() {
   return(
@@ -12,6 +13,7 @@ function SignIn() {
         px={1}
       >
         <Header/>
+        <SignInFields/>
         <Footer />
       </Stack>
 
