@@ -4,7 +4,7 @@ import {User} from "../../types";
 export const fetchUser = async () =>
   fetch("/fin-the-pen-web/user", {
     method: "POST"
-    //   이후 헤더에서 로그인 토큰을 넘겨줘야함
+    //   이후 헤더에서 로그인 토큰을 넘겨줘야 함
   }).then((res) => res.json());
 
 function MyPage() {
