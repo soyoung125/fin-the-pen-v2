@@ -1,19 +1,40 @@
-import { Box, Button, TextField } from '@mui/material';
-import { FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Box, Button, TextField} from '@mui/material';
+import {FormEvent} from 'react';
+import {useNavigate} from 'react-router-dom';
 import PATH from '../../../domain/constants/path';
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+
+interface Sign {
+  user_id: string;
+  password: string
+}
+
+export const signIn = async (credentials: Sign) =>
+  fetch("/fin-the-pen-web/sign-in", {
+    method: "POST",
+    body: JSON.stringify({
+      user_name: credentials.user_id,
+      password: credentials.password,
+    }),
+  });
 
 function SignInFields() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const signInMutation = useMutation({
+    mutationFn: signIn,
+    onSettled: () => queryClient.invalidateQueries({queryKey: ["user"]}),
+  });
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const sign = {
-      user_id: data.get('email'),
-      password: data.get('password'),
+    const sign: Sign = {
+      user_id: data.get('email') as string,
+      password: data.get('password') as string,
     };
-    alert(JSON.stringify(sign))
+    signInMutation.mutate(sign)
   };
 
   return (
@@ -21,7 +42,7 @@ function SignInFields() {
       component="form"
       onSubmit={handleSubmit}
       noValidate
-      sx={{ maxWidth: '400px' }}
+      sx={{maxWidth: '400px'}}
     >
 
       <TextField
@@ -53,10 +74,12 @@ function SignInFields() {
         type="submit"
         fullWidth
         variant="contained"
-        sx={{ mt: 3, mb: 2 }}
+        color={signInMutation.isLoading ? 'warning' : 'primary'}
+        sx={{mt: 3, mb: 2}}
       >
-        로그인
+        {signInMutation.isLoading ? <span>Loading...</span> : "로그인"}
       </Button>
+      {signInMutation.isError && <span>시스템 에러</span>}
 
       <Button onClick={() => navigate(PATH.signUp)}>
         계정이 없으신가요?
@@ -64,4 +87,5 @@ function SignInFields() {
     </Box>
   );
 }
+
 export default SignInFields;

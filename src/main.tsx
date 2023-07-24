@@ -5,6 +5,9 @@ import router from './app/router.tsx';
 import { RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { worker } from './mocks/browser';
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 async function main() {
   // msw 세팅 시작
@@ -16,9 +19,11 @@ async function main() {
   });
   // msw 세팅 끝
   ReactDOM.createRoot(document.getElementById('root')!).render(
-    <RecoilRoot>
-      <RouterProvider router={router} />
-    </RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
+    </QueryClientProvider>
   );
 }
 
