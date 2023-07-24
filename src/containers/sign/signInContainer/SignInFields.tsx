@@ -24,6 +24,9 @@ function SignInFields() {
 
   const signInMutation = useMutation({
     mutationFn: signIn,
+    onSuccess: () => {
+      navigate('/');
+    },
     onSettled: () => queryClient.invalidateQueries({queryKey: ["user"]}),
   });
 
