@@ -9,6 +9,7 @@ function ScheduleDrawerHeader() {
 
   return (
     <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Button disabled />
       <Typography variant="h5" sx={{ fontWeight: "bold" }}>
         {SCHEDULE_DRAWER.drawer_title["create"]}
       </Typography>
