@@ -3,6 +3,7 @@ import ScheduleDrawerHeader from "./ScheduleDrawerHeader.tsx";
 import { Stack } from "@mui/material";
 import NameInput from "./NameInput.tsx";
 import DateInput from "./DateInput.tsx";
+import RepeatInput from "./RepeatInput.tsx";
 
 export interface ScheduleDrawerProps {
   setDrawerWidth: Dispatch<SetStateAction<number>>;
@@ -28,6 +29,9 @@ function ScheduleDrawer({ setDrawerWidth }: ScheduleDrawerProps) {
 
         {/* 날짜 */}
         <DateInput />
+
+        {/* 이벤트 반복 설정 */}
+        <RepeatInput />
       </Stack>
     </div>
   );

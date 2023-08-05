@@ -1,3 +1,6 @@
+import { PickersDayProps } from "@mui/x-date-pickers";
+import { ReactElement } from "react";
+
 export type ScheduleDrawerModeValue =
   ScheduleDrawerMode[keyof ScheduleDrawerMode];
 
@@ -75,4 +78,12 @@ export interface ScheduleDrawer {
     readonly read: string;
     readonly modify: string;
   };
+}
+
+export interface RenderDayFunction {
+  (
+    day: moment.Moment,
+    _value: moment.Moment[],
+    DayComponentProps: PickersDayProps<moment.Moment>
+  ): ReactElement;
 }
