@@ -101,15 +101,7 @@ function BottomBar() {
         }}
       >
         {/* 이 부분을 범용적으로 사용할 수 있게 만드는 건 어떨까? */}
-        {/* <ScheduleDrawer
-                    setDrawerWidth={setDrawerWidth}
-                    handleClose={() => dispatch(setBottomDrawerOpenFalse())}
-                    data={{
-                        ...INIT_SCHEDULE(moment(date).format('YYYY-MM-DD'), startTime),
-                    }}
-                    mode={SCHEDULE_DRAWER_MODE.create}
-                /> */}
-        <ScheduleDrawer />
+        <ScheduleDrawer setDrawerWidth={setDrawerWidth} />
       </Drawer>
     </>
   );
