@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const scheduleDrawerOpenAtom = atom({
+export const scheduleDrawerOpenState = atom({
   key: "scheduleDrawerOpenState",
   default: false,
 });

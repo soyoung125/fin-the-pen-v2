@@ -13,9 +13,10 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PATH from "../../../domain/constants/path";
-import { useRecoilState } from "recoil";
-import { scheduleDrawerOpenAtom } from "../../../app/recoil/scheduleDrawerOpenAtom.ts";
+import { useRecoilValue } from "recoil";
 import ScheduleDrawer from "../../../components/ScheduleDrawer";
+import { scheduleDrawerOpenRepository } from "../../../app/recoil/scheduleDrawerRepository.ts";
+import { scheduleDrawerOpenState } from "../../../app/recoil/scheduleDrawerAtom.ts";
 
 function BottomBar() {
   const navigate = useNavigate();
@@ -25,8 +26,9 @@ function BottomBar() {
 
   // 전역 상태로 관리할 변수들
   const [date, setDate] = useState(moment());
-  const [bottomDrawerOpen, setBottomDrawerOpen] = useRecoilState(
-    scheduleDrawerOpenAtom
+  const isScheduleDrawerOpen = useRecoilValue(scheduleDrawerOpenState);
+  const { openScheduleDrawer, closeScheduleDrawer } = useRecoilValue(
+    scheduleDrawerOpenRepository
   );
   const [bottomDrawerTabMenu, setBottomDrawerTabMenu] = useState(0);
 
@@ -54,7 +56,7 @@ function BottomBar() {
         <BottomNavigation
           value={bottomDrawerTabMenu}
           onChange={(event, newValue) => {
-            setBottomDrawerTabMenu(newValue);
+            // setBottomDrawerTabMenu(newValue);
           }}
         >
           <BottomNavigationAction
@@ -73,7 +75,7 @@ function BottomBar() {
           <BottomNavigationAction
             label=""
             icon={<AddCircleIcon />}
-            onClick={() => setBottomDrawerOpen(true)}
+            onClick={() => openScheduleDrawer()}
           />
           <BottomNavigationAction
             label="자산관리"
@@ -88,9 +90,9 @@ function BottomBar() {
         </BottomNavigation>
       </Paper>
       <Drawer
-        open={bottomDrawerOpen}
+        open={isScheduleDrawerOpen}
         anchor="bottom"
-        onClose={() => setBottomDrawerOpen(false)}
+        onClose={() => closeScheduleDrawer()}
         // Drawer를 가운데로 위치할 수 있도록 도와줌. resize는 이후 업데이트 예정
         PaperProps={{
           sx: {
