@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import PATH from "../../../domain/constants/path";
 import { useRecoilState } from "recoil";
 import { scheduleDrawerOpenAtom } from "../../../app/recoil/scheduleDrawerOpenAtom.ts";
+import ScheduleDrawer from "../../../components/ScheduleDrawer";
 
 function BottomBar() {
   const navigate = useNavigate();
@@ -108,7 +109,7 @@ function BottomBar() {
                     }}
                     mode={SCHEDULE_DRAWER_MODE.create}
                 /> */}
-        <>ScheduleDrawer</>
+        <ScheduleDrawer />
       </Drawer>
     </>
   );
