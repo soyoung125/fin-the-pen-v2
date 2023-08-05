@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import ScheduleDrawerHeader from "./ScheduleDrawerHeader.tsx";
 import { Stack } from "@mui/material";
 import NameInput from "./NameInput.tsx";
+import DateInput from "./DateInput.tsx";
 
 export interface ScheduleDrawerProps {
   setDrawerWidth: Dispatch<SetStateAction<number>>;
@@ -24,6 +25,9 @@ function ScheduleDrawer({ setDrawerWidth }: ScheduleDrawerProps) {
 
         {/* 이벤트 제목 */}
         <NameInput />
+
+        {/* 날짜 */}
+        <DateInput />
       </Stack>
     </div>
   );
