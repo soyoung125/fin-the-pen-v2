@@ -4,6 +4,7 @@ import { Stack } from "@mui/material";
 import NameInput from "./NameInput.tsx";
 import DateInput from "./DateInput.tsx";
 import RepeatInput from "./RepeatInput.tsx";
+import { useScheduleDrawerForm } from "./useScheduleDrawerForm.ts";
 
 export interface ScheduleDrawerProps {
   setDrawerWidth: Dispatch<SetStateAction<number>>;
@@ -11,6 +12,8 @@ export interface ScheduleDrawerProps {
 
 function ScheduleDrawer({ setDrawerWidth }: ScheduleDrawerProps) {
   const ref = useRef<HTMLDivElement>(null);
+
+  const { form } = useScheduleDrawerForm();
 
   useEffect(() => {
     // 현재 버그 있음
@@ -25,7 +28,7 @@ function ScheduleDrawer({ setDrawerWidth }: ScheduleDrawerProps) {
         <ScheduleDrawerHeader />
 
         {/* 이벤트 제목 */}
-        <NameInput />
+        <NameInput value={form.name} />
 
         {/* 날짜 */}
         <DateInput />

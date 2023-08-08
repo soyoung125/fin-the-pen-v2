@@ -7,7 +7,7 @@ import {
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { SCHEDULE_DRAWER } from "../../types/schedule.ts";
 
-function NameInput() {
+function NameInput({ value }: { value: string }) {
   return (
     <FormControl fullWidth>
       <OutlinedInput
@@ -28,7 +28,7 @@ function NameInput() {
             </IconButton>
           </InputAdornment>
         }
-        value={""}
+        value={value}
         onChange={() => {}}
         size="small"
         inputProps={{
